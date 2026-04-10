@@ -15,6 +15,7 @@ pub extern crate cfx_storage;
 compile_error!("Multiple backends are chosen!");
 
 mod in_mem_with_metrics;
+#[cfg(not(target_os = "windows"))]
 mod mdbx;
 
 #[cfg(feature = "parity-backend")]
@@ -34,6 +35,9 @@ pub fn backend(opts: &Options) -> Arc<dyn KeyValueDB> {
             }
         }
         Backend::InMemoryDB => Arc::new(kvdb_memorydb::create(opts.num_cols())),
+        #[cfg(not(target_os = "windows"))]
         Backend::MDBX => Arc::new(mdbx::open_database(opts)),
+        #[cfg(target_os = "windows")]
+        Backend::MDBX => panic!("MDBX backend is not supported on Windows"),
     }
 }

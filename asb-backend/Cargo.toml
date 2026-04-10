@@ -10,16 +10,17 @@ authors = ["Chenxing Li <ChenxingLi@users.noreply.github.com>"]
 asb-options = { workspace = true }
 kvdb = { workspace = true }
 kvdb-memorydb = { workspace = true }
-libmdbx = { workspace = true }
 ouroboros = "0.15.6"
 stats = { workspace = true }
 parity-util-mem = { workspace = true }
 
-# Note: we met a version conflict of rocksdb, so you need manually change the dependency of rocksdb. 
-
+# Note: we met a version conflict of rocksdb, so you need manually change the dependency of rocksdb.
 
 ## Uncomment the following lines in default backend (no features)
-cfx-kvdb-rocksdb = { path = "./cfx-kvdb-rocksdb" }
+cfx-rocksdb = { package = "cfx-kvdb-rocksdb", path = "./cfx-kvdb-rocksdb" }
+
+[target.'cfg(not(target_os = "windows"))'.dependencies]
+libmdbx = { workspace = true }
 
 ## Uncomment the following lines in feature parity-backend
 # kvdb-rocksdb = "0.9.1"

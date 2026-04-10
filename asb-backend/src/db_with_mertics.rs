@@ -3,7 +3,7 @@
 use std::io::Read;
 use std::sync::Arc;
 
-use cfx_kvdb_rocksdb::Database;
+use cfx_rocksdb::Database;
 use kvdb::{DBOp, DBTransaction, DBValue, KeyValueDB};
 use parity_util_mem::{MallocSizeOf, MallocSizeOfOps};
 

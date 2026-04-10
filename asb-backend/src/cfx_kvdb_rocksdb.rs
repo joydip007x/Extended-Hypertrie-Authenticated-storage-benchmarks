@@ -1,7 +1,7 @@
 use std::path::Path;
 use std::sync::Arc;
 
-use cfx_kvdb_rocksdb::{CompactionProfile, Database, DatabaseConfig};
+use cfx_rocksdb::{CompactionProfile, Database, DatabaseConfig};
 
 use asb_options::Options;
 

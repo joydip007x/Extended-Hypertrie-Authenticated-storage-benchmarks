@@ -1,13 +1,18 @@
+#[cfg(not(target_os = "windows"))]
 use pprof::{protos::Message, ProfilerGuard, Report};
+#[cfg(not(target_os = "windows"))]
 use std::fs::File;
+#[cfg(not(target_os = "windows"))]
 use std::io::Write;
 
+#[cfg(not(target_os = "windows"))]
 pub struct Profiler {
     inner: Option<ProfilerGuard<'static>>,
     frequency: i32,
     reports: Vec<Report>,
 }
 
+#[cfg(not(target_os = "windows"))]
 impl Profiler {
     pub fn new(frequency: i32) -> Self {
         if frequency > 0 {
@@ -53,4 +58,15 @@ impl Profiler {
         }
         println!("Done");
     }
+}
+
+// Windows stub: pprof is not supported on Windows; profiling is a no-op.
+#[cfg(target_os = "windows")]
+pub struct Profiler;
+
+#[cfg(target_os = "windows")]
+impl Profiler {
+    pub fn new(_frequency: i32) -> Self { Profiler }
+    pub fn tick(&mut self) {}
+    pub fn report_to_file(self, _prefix: &str) {}
 }

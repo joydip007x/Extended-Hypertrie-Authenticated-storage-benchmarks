@@ -10,3 +10,9 @@ flamegraph.svg
 *.pdf
 *.log
 # .vscode
+/__benchmarks/*
+# secrets (contains sudo password)
+fix_env.sh
+__benchmarks/IDENTITY
+__benchmarks/CURRENT
+__benchmarks/LOG

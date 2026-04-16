@@ -8,7 +8,7 @@ CARGO_RUN = "cargo run --release --".split(" ")
 DRY_RUN = False
 WARMUP = "./warmup/v4"
 RESULT = "./paper_experiment/osdi23"
-# CGRUN_PREFIX = "cgrun"
+CGRUN_PREFIX = "./cgrun.sh"
 
 
 def to_amt_size(key):

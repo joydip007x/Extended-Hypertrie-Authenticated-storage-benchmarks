@@ -5,6 +5,6 @@
     "github.copilot.chat.terminalAccess.autoApprove": true,
     "chat.agent.enabled": true,
     "chat.tools.terminal.enabled": true,
-    "chat.agent.maxRequests": 50,
+    "chat.agent.maxRequests": 70,
     "diffEditor.maxComputationTime": 0
 }
